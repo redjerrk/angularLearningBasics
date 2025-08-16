@@ -1,0 +1,49 @@
+<button class="btn btn-success" (click)="showP()">Show P </button>
+
+
+
+<button class="btn btn-danger" (click)="hideP()">Hide P</button>
+
+
+@if(isParagraph)
+{
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, quo!</p>
+}
+
+<p>{{personN}}</p>
+
+<select name="" id="" [(ngModel)]="personN">
+
+    @for (item of personName; track $index) {
+    <option value="{{item}}"> {{item}}</option>
+    }
+</select>
+
+<table border="1">
+
+    <thead>
+        <tr>
+            @for (key of personObjectKeys; track $index) {
+
+            <th>{{key}}</th>
+
+
+            }
+        </tr>
+
+    </thead>
+    <tbody>
+        @for (item of personObject; track $index) {
+        <tr>
+            <td>{{item.id+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.city}}</td>
+        </tr>
+
+
+        }
+    </tbody>
+
+
+
+</table>

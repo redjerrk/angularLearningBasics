@@ -1,0 +1,36 @@
+<input [type]="" [value]="userName">
+
+<button (click)="showMessage()">cick</button>
+<button (click)="changeUserName()">change name</button>
+
+
+<div>
+    <input [type]="inputType" >
+</div>
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+    </tr>
+    <tr>
+        <td>{{userName}}</td>
+        <td>{{Age}}</td>
+        <td>{{city}}</td>
+    </tr>
+
+    
+</table>
+
+<input type="text" [(ngModel)] = "userName">
+
+<br>
+
+<!-- app.component.html -->
+<button [disabled]="buttonDisabled">Click Me</button>
+<img [src]="imageUrl" alt="Angular Logo" width="100">
+
+
+
+
