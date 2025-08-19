@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { ControlFlow } from './components/control-flow/control-flow';
-import { DataBindings } from './components/data-bindings/data-bindings';
 
 export const routes: Routes = [
   {
@@ -30,11 +28,15 @@ export const routes: Routes = [
   {
     path: 'lifeCycle',
     loadComponent: () => {
-      return import('./components/component-life-cycle/component-life-cycle').then(
-        (m) => m.ComponentLifeCycle
-      );
+      return import(
+        './components/component-life-cycle/component-life-cycle'
+      ).then((m) => m.ComponentLifeCycle);
+    },
+  },
+  {
+    path: 'getAPI',
+    loadComponent: () => {
+      return import('./get-api/get-api').then((m) => m.GetAPI);
     },
   },
 ];
-
-
