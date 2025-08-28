@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header bg-success">
+                Region List
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Region</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (user of userList; track $index) {
+                        <tr>
+                            <td>{{user.code}}</td>
+                            <td>{{user.name}}</td>
+                            <td><img [src]="user.regionImageUrl" alt="" height="200px" width="100px"></td>
+                            <td class="row flex-row gap-2">
+                                <button class="btn btn-primary btn-sm" (click)="onEdit(user)">Edit</button>
+                                <button class="btn btn-danger btn-sm" (click)="onDelete(user.id)">Delete</button>
+                            </td>
+
+                        </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header bg-success">
+                New User
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Code</label>
+                        <input type="text" [(ngModel)]="userObj.code" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Name</label>
+                        <input type="text" [(ngModel)]="userObj.name" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Region Image</label>
+                        <input type="text" [(ngModel)]="userObj.regionImageUrl" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="row pt-3 text-center">
+                    <div class="col-6">
+                        <button class="btn btn-secondary" (click)="onReset()">Reset</button>
+                    </div>
+                    <div class="col-6">
+                        @if(userObj.id != 0){
+                            <button class="btn btn-success" (click)="updateUser()"> Update </button>
+                        }
+                        @else{
+                            <button class="btn btn-primary" (click)="createNewUser()">Save</button>
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

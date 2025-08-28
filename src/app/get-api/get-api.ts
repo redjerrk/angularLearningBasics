@@ -14,12 +14,14 @@ export class GetAPI implements OnInit {
   todoList: any[] = [];
   catList: any[] = [];
   busBookingUser: any[] = [];
+  regionList: any[] = [];
 
   ngOnInit(): void {
     this.getUser();
     this.getTodo();
     this.getCat();
     this.getBusUser();
+    this.getRegion();
   }
 
   getUser(){
@@ -43,6 +45,15 @@ export class GetAPI implements OnInit {
     this.http.get("https://api.freeprojectapi.com/api/BusBooking/GetAllUsers").subscribe((result:any) =>{
       this.busBookingUser = result.data;
     })
+  }
+  getRegion(){
+    
+    this.http
+      .get('https://localhost:7001/api/Regions')
+      .subscribe((result: any) => {
+        this.regionList = result;
+      
+      });
   }
 
 }

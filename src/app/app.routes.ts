@@ -1,6 +1,15 @@
 import { Routes } from '@angular/router';
+import { ReactiveUser } from './reactive-user/reactive-user';
 
 export const routes: Routes = [
+
+  {
+    path: '',
+    redirectTo: 'user',
+    pathMatch: "full"
+
+  },
+
   {
     path: 'control-flow',
     loadComponent: () => {
@@ -39,4 +48,28 @@ export const routes: Routes = [
       return import('./get-api/get-api').then((m) => m.GetAPI);
     },
   },
+  {
+    path: 'user',
+    loadComponent: () => {
+      return import('./user/user').then((m) => m.User);
+    },
+  },
+  {
+    path: 'posts',
+    loadComponent: () => {
+      return import('./posts/posts').then((m) => m.Posts);
+    },
+  },
+  // {
+  //   path: 'reactiveUser',
+  //   loadComponent: () => {
+  //     return import('./reactive-user/reactive-user').then((m) => m.ReactiveUser);
+      
+  //   },
+  // },
+
+  {
+    path: 'reactiveUser',
+    component: ReactiveUser
+  }
 ];

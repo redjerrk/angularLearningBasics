@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-data-bindings',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterOutlet],
   templateUrl: './data-bindings.html',
   styleUrl: './data-bindings.css',
 })
